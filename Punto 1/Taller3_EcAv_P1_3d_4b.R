@@ -17,11 +17,11 @@ download.file(url, "Empresas_Sim.dta", mode = "wb")
 # Abrir la base
 datos <- read_dta("Empresas_Sim.dta")
 
-# 3.d Descomposici´on Goodman–Bacon=================================
+# 3.d Descomposición Goodman–Bacon=================================
 
 # Realizar descomposición de Bacon 
 bacon_results <- bacon(y_2 ~ treat,
-                       data = data,
+                       data = datos,
                        id_var = "id", 
                        time_var = "year",
                        quietly = FALSE)
@@ -32,28 +32,28 @@ print(bacon_results)
 # 4.b Leads and lags =================================
 
 # Crear variable de tiempo relativo
-data$time_rel <- data$year - data$treat_date
+datos$time_rel <- datos$year - datos$treat_date
 
 # Crear dummies para cada k
-data$D_k_m8 <- as.numeric(data$time_rel == -8)
-data$D_k_m7 <- as.numeric(data$time_rel == -7)
-data$D_k_m6 <- as.numeric(data$time_rel == -6)
-data$D_k_m5 <- as.numeric(data$time_rel == -5)
-data$D_k_m4 <- as.numeric(data$time_rel == -4)
-data$D_k_m3 <- as.numeric(data$time_rel == -3)
-data$D_k_m2 <- as.numeric(data$time_rel == -2)
+datos$D_k_m8 <- as.numeric(datos$time_rel == -8)
+datos$D_k_m7 <- as.numeric(datos$time_rel == -7)
+datos$D_k_m6 <- as.numeric(datos$time_rel == -6)
+datos$D_k_m5 <- as.numeric(datos$time_rel == -5)
+datos$D_k_m4 <- as.numeric(datos$time_rel == -4)
+datos$D_k_m3 <- as.numeric(datos$time_rel == -3)
+datos$D_k_m2 <- as.numeric(datos$time_rel == -2)
 # Omitimos k = -1 (referencia)
-data$D_k_0 <- as.numeric(data$time_rel == 0)
-data$D_k_1 <- as.numeric(data$time_rel == 1)
-data$D_k_2 <- as.numeric(data$time_rel == 2)
-data$D_k_3 <- as.numeric(data$time_rel == 3)
-data$D_k_4 <- as.numeric(data$time_rel == 4)
-data$D_k_5 <- as.numeric(data$time_rel == 5)
+datos$D_k_0 <- as.numeric(datos$time_rel == 0)
+datos$D_k_1 <- as.numeric(datos$time_rel == 1)
+datos$D_k_2 <- as.numeric(datos$time_rel == 2)
+datos$D_k_3 <- as.numeric(datos$time_rel == 3)
+datos$D_k_4 <- as.numeric(datos$time_rel == 4)
+datos$D_k_5 <- as.numeric(datos$time_rel == 5)
 
 model <- feols(y_2 ~ D_k_m8 + D_k_m7 + D_k_m6 + D_k_m5 + D_k_m4 + 
                  D_k_m3 + D_k_m2 + D_k_0 + D_k_1 + D_k_2 + D_k_3 + 
                  D_k_4 + D_k_5 | id + year, 
-               data = data, 
+               data = datos, 
                cluster = ~id)
 
 # Ver resultados
