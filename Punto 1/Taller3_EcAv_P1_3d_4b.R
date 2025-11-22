@@ -11,8 +11,11 @@ library(pacman)
 p_load(bacondecomp, haven, ggplot2, dplyr, fixest)
 
 # Cargar datos
-setwd("C:\\Users\\Marlon Angulo\\Desktop\\Maestría Andes\\Econometría Avanzada\\Taller 3\\Punto 1")
-data <- read_dta("Empresas_Sim.dta")
+
+url <- "https://raw.githubusercontent.com/9marlon9/Taller-3-EcAv/master/Punto%201/Empresas_Sim.dta"
+download.file(url, "Empresas_Sim.dta", mode = "wb")
+# Abrir la base
+datos <- read_dta("Empresas_Sim.dta")
 
 # 3.d Descomposici´on Goodman–Bacon=================================
 

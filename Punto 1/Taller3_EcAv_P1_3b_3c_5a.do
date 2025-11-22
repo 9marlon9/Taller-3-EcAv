@@ -14,8 +14,11 @@ ssc install bacondecomp, replace
 ssc install csdid, replace
 ssc install drdid, replace
 
-cd "C:\Users\Marlon Angulo\Desktop\Maestría Andes\Econometría Avanzada\Taller 3\Punto 1"
-use Empresas_Sim, clear
+* Descargar la base directamente desde GitHub
+copy "https://raw.githubusercontent.com/9marlon9/Taller-3-EcAv/master/Punto%201/Empresas_Sim.dta" "Empresas_Sim.dta", replace
+
+* Abrir la base
+use "Empresas_Sim.dta", clear
 
 * 3b) Modelo 1
 xtset id year
