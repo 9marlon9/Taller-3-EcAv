@@ -12,14 +12,12 @@
 clear all
 
 * Descargar la base directamente desde GitHub
-copy "https://raw.githubusercontent.com/9marlon9/Taller-3-EcAv/master/Punto%201/Empresas_Sim.dta" "Empresas_Sim.dta", replace
+copy "https://raw.githubusercontent.com/9marlon9/Taller-3-EcAv/master/Punto%203/ito-energy.dta" ///
+    "ito-energy.dta", replace
+
 
 * Abrir la base
-use "Empresas_Sim.dta", clear
-
-cd "C:\Users\Marlon Angulo\Desktop\Maestría Andes\Econometría Avanzada\Taller 3\Punto 3"
-
-use ito-energy
+use "ito-energy.dta", clear
 
 * 3) Histogramas de ahorro esperado
 

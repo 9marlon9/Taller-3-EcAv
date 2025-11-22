@@ -12,7 +12,7 @@
 clear all
 
 * Descargar la base directamente desde GitHub
-copy "https://raw.githubusercontent.com/9marlon9/Taller-3-EcAv/master/Punto%201/Empresas_Sim.dta" "ito-energy.dta", replace
+copy "https://raw.githubusercontent.com/9marlon9/Taller-3-EcAv/master/Punto%203/ito-energy.dta" "ito-energy.dta", replace
 
 * Abrir la base
 use "ito-energy.dta", clear
