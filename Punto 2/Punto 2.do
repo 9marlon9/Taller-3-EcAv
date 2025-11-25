@@ -7,9 +7,13 @@
 * Punto 2 - Análisis descriptivo
 *----------------------------------------------
 
+clear all
+* Descargar la base directamente desde GitHub
+copy "https://raw.githubusercontent.com/9marlon9/Taller-3-EcAv/master/Punto%202/CS_data.dta" "CS_data.dta", replace
 
-*Cargamos la base 
-use "C:/Users/cdam4\Downloads/CS_data.dta", clear
+
+* Abrir la base
+use "Cs_data.dta", clear
 
 * Declarar estructura panel ciudad–tiempo
 xtset city_id date, monthly
