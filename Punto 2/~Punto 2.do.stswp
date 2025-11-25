@@ -12,10 +12,12 @@ clear all
 use "C:/Users/cdam4\Downloads/CS_data.dta", clear
 
 * Descargar la base directamente desde GitHub
-copy "https://raw.githubusercontent.com/9marlon9/Taller-3-EcAv/master/Punto%201/Empresas_Sim.dta" "Empresas_Sim.dta", replace
+copy "https://raw.githubusercontent.com/9marlon9/Taller-3-EcAv/master/Punto%202/CS_data.dta" ///
+     "CS_data.dta", replace
+
 
 * Abrir la base
-use "Empresas_Sim.dta", clear
+use "Cs_data.dta", clear
 
 * Declarar estructura panel ciudad–tiempo
 xtset city_id date, monthly
